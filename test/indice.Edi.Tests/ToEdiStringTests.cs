@@ -21,6 +21,8 @@ namespace indice.Edi.Tests
 
         [Trait(Traits.Tag, "Parser")]
         [Theory]
+        [InlineData("123456789012", 123456789012, "9(12)", null)]
+        [InlineData("123456789012", 1234567890.12, "9(10)V9(2)", null)]
         [InlineData("29012", 290.12, "9(3)V9(2)", null)]
         [InlineData("290.12", 290.12, "9(3)V9(2)", '.')]
         [InlineData("0290.12", 290.12, "9(4)V9(2)", '.')]

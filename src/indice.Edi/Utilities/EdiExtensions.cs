@@ -331,14 +331,14 @@ namespace indice.Edi.Utilities
             } else if (picture.HasValue && picture.Value.Kind == PictureKind.Numeric && picture.Value.HasPrecision) {
                 var pic = picture.Value;
                 var number = value.Value;
-                var integer = (int)(number * (decimal)Math.Pow(10.0, pic.Precision));
+                var integer = (Int64)(number * (decimal)Math.Pow(10.0, pic.Precision));
                 var padding = new string(Enumerable.Range(0, pic.Scale).Select(i => '0').ToArray());
                 var result = integer.ToString(padding);
                 return result;
             } else if (picture.HasValue && picture.Value.Kind == PictureKind.Numeric) {
                 var pic = picture.Value;
                 var number = value.Value;
-                var integer = (int)(number * (decimal)Math.Pow(10.0, pic.Precision));
+                var integer = (Int64)(number * (decimal)Math.Pow(10.0, pic.Precision));
                 var padding = new string(Enumerable.Range(0, pic.Scale).Select(i => '0').ToArray());
                 var result = integer.ToString(padding);
                 return result;
